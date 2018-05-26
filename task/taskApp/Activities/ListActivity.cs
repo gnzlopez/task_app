@@ -35,7 +35,18 @@ namespace taskApp.Activities
 
             listView.ItemClick += ListView_ItemClick;
 
-            
+            butAdd.Click += (sender, e) =>
+            {
+                StartActivity(typeof(NewItemActivity));
+            };
+
+
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            this.OnStart();
         }
 
         private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -46,6 +57,9 @@ namespace taskApp.Activities
             StartActivity(intent);
         }
 
+        private void NewItemAdd_ButtonClick()
+        {
+        }
 
     }
 }

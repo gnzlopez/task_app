@@ -20,6 +20,24 @@ namespace taskApp.Activities
             base.OnCreate(savedInstanceState);
 
             // Create your application here
+
+            SetContentView(Resource.Layout.NewItemLayout);
+
+            var butCancel = FindViewById<Button>(Resource.Id.butAddCancel);
+            var butAddOk = FindViewById<Button>(Resource.Id.butAddOk);
+            var textTitle = FindViewById<EditText>(Resource.Id.newTitleId);
+            var textDesc = FindViewById<EditText>(Resource.Id.newDescId);
+
+            
+            butCancel.Click += (sender, e) => base.OnBackPressed();
+            butAddOk.Click += NewItem_AddClick;
+        }
+
+        private void NewItem_AddClick(object sender, EventArgs e)
+        {
+            base.OnBackPressed();
+
+           //TODO IMPLEMENTAR EN EL METODO QUE AGREGUE A LA DB
         }
     }
 }
