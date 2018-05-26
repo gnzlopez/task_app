@@ -51,10 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Repository.cs" />
+    <Compile Include="Data\TaskLocalRepository.cs" />
     <Compile Include="Models\TaskItemModel.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ListService.cs" />
+    <Compile Include="Services\TaskLocalService.cs" />
+    <Compile Include="Services\Values.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
