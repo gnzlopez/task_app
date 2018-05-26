@@ -27,8 +27,8 @@ namespace taskApp.Activities
 
             var id = Intent.Extras.GetInt(KEY_ID);
 
-            var listService = new ListService();
-            var item = listService.GetItemById(id);
+            var listService = new TaskLocalService();
+            var item = listService.GetById(id);
 
             var title = FindViewById<TextView>(Resource.Id.textTitleMain);
             var desc = FindViewById<TextView>(Resource.Id.textDescMain);

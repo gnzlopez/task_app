@@ -34,7 +34,11 @@ namespace taskApp.Adapters
 
         public override long GetItemId(int position)
         {
-            return this[position].IdItem;
+            if (this[position].IdItem.HasValue)
+                return this[position].IdItem.Value;
+            else
+                return 0;
+           
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)

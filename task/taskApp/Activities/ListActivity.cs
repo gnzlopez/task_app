@@ -28,10 +28,7 @@ namespace taskApp.Activities
             var listView = FindViewById<ListView>(Resource.Id.listView);
             var butAdd = FindViewById<Button>(Resource.Id.butAdd);
 
-            var listService = new ListService();
-            var list = listService.GetList();
-
-            listView.Adapter = new ListAdapter(this, list);
+            UpdateList();
 
             listView.ItemClick += ListView_ItemClick;
 
@@ -46,7 +43,7 @@ namespace taskApp.Activities
         protected override void OnResume()
         {
             base.OnResume();
-            this.OnStart();
+            UpdateList();
         }
 
         private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -56,9 +53,14 @@ namespace taskApp.Activities
             intent.PutExtra(ItemActivity.KEY_ID, id);
             StartActivity(intent);
         }
-
-        private void NewItemAdd_ButtonClick()
+        
+        private void UpdateList()
         {
+            var listView = FindViewById<ListView>(Resource.Id.listView);
+            var listService = new TaskLocalService();
+            var list = listService.GetAll();
+
+            listView.Adapter = new ListAdapter(this, list);
         }
 
     }

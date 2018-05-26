@@ -9,6 +9,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using taskAppData.Services;
+using taskAppData.Models;
 
 namespace taskApp.Activities
 {
@@ -25,9 +27,6 @@ namespace taskApp.Activities
 
             var butCancel = FindViewById<Button>(Resource.Id.butAddCancel);
             var butAddOk = FindViewById<Button>(Resource.Id.butAddOk);
-            var textTitle = FindViewById<EditText>(Resource.Id.newTitleId);
-            var textDesc = FindViewById<EditText>(Resource.Id.newDescId);
-
             
             butCancel.Click += (sender, e) => base.OnBackPressed();
             butAddOk.Click += NewItem_AddClick;
@@ -35,9 +34,28 @@ namespace taskApp.Activities
 
         private void NewItem_AddClick(object sender, EventArgs e)
         {
-            base.OnBackPressed();
+            var textTitle = FindViewById<EditText>(Resource.Id.newTitleId);
+            var textDesc = FindViewById<EditText>(Resource.Id.newDescId);
+            var itemToAdd = new TaskItemModel()
+            {
+                Title = textTitle.Text,
+                Descrip = textDesc.Text,
+                IsDone = false
+            };
+            try
+            {
+                var taskService = new TaskLocalService();
+                taskService.Save(itemToAdd);
+                Toast.MakeText(this, "Saved", ToastLength.Long).Show();
 
-           //TODO IMPLEMENTAR EN EL METODO QUE AGREGUE A LA DB
+            }
+            catch (Exception ex)
+            {
+
+                Toast.MakeText(this, ex.Message, ToastLength.Long).Show();
+            }
+
+            base.OnBackPressed();
         }
     }
 }

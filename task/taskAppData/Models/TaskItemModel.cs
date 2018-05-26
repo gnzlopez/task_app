@@ -17,7 +17,7 @@ namespace taskAppData.Models
     public class TaskItemModel
     {
         [PrimaryKey, AutoIncrement]
-        public int IdItem { get; set; }
+        public int? IdItem { get; set; }
         public string Title { get; set; }
         public string Descrip { get; set; }
         public bool IsDone { get; set; }
