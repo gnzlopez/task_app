@@ -37,6 +37,20 @@ namespace taskApp.Activities
             title.Text = item.Title;
             desc.Text = item.Descrip;
             check.Checked = item.IsDone;
+
+            check.CheckedChange += CheckChange;
+        }
+
+        private void CheckChange(object sender, CompoundButton.CheckedChangeEventArgs e)
+        {
+            var id = Intent.Extras.GetInt(KEY_ID);
+
+            var listService = new TaskLocalService();
+            var item = listService.GetById(id);
+
+            item.IsDone = e.IsChecked;
+
+            listService.Save(item);
         }
     }
 }

@@ -27,6 +27,8 @@ namespace taskApp.Activities
 
             var listView = FindViewById<ListView>(Resource.Id.listView);
             var butAdd = FindViewById<Button>(Resource.Id.butAdd);
+           // var checkButton = FindViewById<CheckBox>(Resource.Id.checkItem);
+            
 
             UpdateList();
 

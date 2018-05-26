@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\ItemActivity.cs" />
+    <Compile Include="Activities\ItemListActivity.cs" />
     <Compile Include="Activities\ListActivity.cs" />
     <Compile Include="Activities\NewItemActivity.cs" />
     <Compile Include="Adapters\ListAdapter.cs" />
