@@ -44,6 +44,9 @@ namespace taskApp
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f040007
+			public const int butAdd = 2130968583;
+			
 			// aapt resource value: 0x7f040005
 			public const int checkItem = 2130968581;
 			
@@ -56,8 +59,20 @@ namespace taskApp
 			// aapt resource value: 0x7f040006
 			public const int listView = 2130968582;
 			
+			// aapt resource value: 0x7f04000b
+			public const int newDescId = 2130968587;
+			
+			// aapt resource value: 0x7f040009
+			public const int newTitleId = 2130968585;
+			
+			// aapt resource value: 0x7f04000a
+			public const int textDescId = 2130968586;
+			
 			// aapt resource value: 0x7f040002
 			public const int textDescMain = 2130968578;
+			
+			// aapt resource value: 0x7f040008
+			public const int textTitleId = 2130968584;
 			
 			// aapt resource value: 0x7f040004
 			public const int textTitleItem = 2130968580;
@@ -90,6 +105,9 @@ namespace taskApp
 			// aapt resource value: 0x7f020003
 			public const int Main = 2130837507;
 			
+			// aapt resource value: 0x7f020004
+			public const int NewItem = 2130837508;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -103,8 +121,14 @@ namespace taskApp
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f030001
+			public const int ApplicationName = 2130903041;
+			
 			// aapt resource value: 0x7f030000
-			public const int app_name = 2130903040;
+			public const int Hello = 2130903040;
+			
+			// aapt resource value: 0x7f030002
+			public const int app_name = 2130903042;
 			
 			static String()
 			{

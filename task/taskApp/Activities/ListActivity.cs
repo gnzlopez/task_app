@@ -26,6 +26,7 @@ namespace taskApp.Activities
             SetContentView(Resource.Layout.ListLayout);
 
             var listView = FindViewById<ListView>(Resource.Id.listView);
+            var butAdd = FindViewById<Button>(Resource.Id.butAdd);
 
             var listService = new ListService();
             var list = listService.GetList();
@@ -33,6 +34,8 @@ namespace taskApp.Activities
             listView.Adapter = new ListAdapter(this, list);
 
             listView.ItemClick += ListView_ItemClick;
+
+            
         }
 
         private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
