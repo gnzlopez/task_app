@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Titulo"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textTitleId"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp" />
+    <EditText
+        android:inputType="textMultiLine"
+        android:text="Ingrese su titulo"
+        android:background="#5B985B"
+        android:backgroundTint="#5B985B"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:height="50dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/newTitleId" />
+    <TextView
+        android:text="Descripcion"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/textDescId" />
+    <EditText
+        android:inputType="textMultiLine"
+        android:text="Ingrese su descripcion"
+        android:background="#5B985B"
+        android:backgroundTint="#5B985B"
+        android:editable="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:height="100dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/newDescId" />
+    <GridLayout
+        android:columnCount="2"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridLayout1">
+        <Button
+            android:text="Cancel"
+            android:id="@+id/butAddCancel" />
+        <Button
+            android:text="Add"
+            android:id="@+id/butAddOk" />
+    </GridLayout>
+</LinearLayout>
