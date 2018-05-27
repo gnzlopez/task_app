@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using taskAppData.Models;
+using taskAppData.Services;
+using taskApp.Activities;
 
 namespace taskApp.Adapters
 {
@@ -38,7 +40,7 @@ namespace taskApp.Adapters
                 return this[position].IdItem.Value;
             else
                 return 0;
-           
+
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
@@ -50,10 +52,35 @@ namespace taskApp.Adapters
                 convertView = this.context.LayoutInflater.Inflate(Resource.Layout.ItemListLayout, null);
             }
 
+
             convertView.FindViewById<TextView>(Resource.Id.textTitleItem).Text = item.Title;
             convertView.FindViewById<CheckBox>(Resource.Id.checkItem).Checked = item.IsDone;
+            convertView.FindViewById<CheckBox>(Resource.Id.checkItem)
+                .CheckedChange += (sender, e) =>
+                {
+                    try
+                    {
+                        var listService = new TaskLocalService();
+
+                        item.IsDone = e.IsChecked;
+
+                        listService.Save(item);
+
+                        if (e.IsChecked)
+                            Toast.MakeText(convertView.Context, "Task accomplished", ToastLength.Long).Show();
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Toast.MakeText(convertView.Context, ex.Message, ToastLength.Long).Show();
+                    }
+                };
 
             return convertView;
         }
+
+
+
     }
 }

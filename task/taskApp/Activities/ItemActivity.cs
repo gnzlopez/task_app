@@ -45,12 +45,24 @@ namespace taskApp.Activities
         {
             var id = Intent.Extras.GetInt(KEY_ID);
 
-            var listService = new TaskLocalService();
-            var item = listService.GetById(id);
+            try
+            {
+                var listService = new TaskLocalService();
+                var item = listService.GetById(id);
 
-            item.IsDone = e.IsChecked;
+                item.IsDone = e.IsChecked;
 
-            listService.Save(item);
+                listService.Save(item);
+
+                if (e.IsChecked)
+                    Toast.MakeText(this, "Task accomplished", ToastLength.Long).Show();
+
+            }
+            catch (Exception ex)
+            {
+
+                Toast.MakeText(this, ex.Message, ToastLength.Long).Show();
+            }
         }
     }
 }

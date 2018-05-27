@@ -12,6 +12,9 @@ using Android.Widget;
 
 namespace taskApp.Activities
 {
+    /// <summary>
+    /// This class does nothing but was created and left created
+    /// </summary>
     [Activity(Label = "ItemListActivity")]
     public class ItemListActivity : Activity
     {
@@ -20,16 +23,9 @@ namespace taskApp.Activities
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.ItemListLayout);
-
-            var checkButton = FindViewById<CheckBox>(Resource.Id.checkItem);
-            
-            checkButton.Click += CheckClick_Item;
+            SetContentView(Resource.Layout.ItemListLayout);           
         }
 
-        private void CheckClick_Item(object sender, EventArgs e)
-        {
-           
-        }
+        
     }
 }

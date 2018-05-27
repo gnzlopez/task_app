@@ -28,11 +28,11 @@ namespace taskApp.Activities
             var listView = FindViewById<ListView>(Resource.Id.listView);
             var butAdd = FindViewById<Button>(Resource.Id.butAdd);
            // var checkButton = FindViewById<CheckBox>(Resource.Id.checkItem);
-            
 
             UpdateList();
 
-            listView.ItemClick += ListView_ItemClick;
+        
+            listView.ItemClick += ListView_ItemClick; //Add functionality to item when doing click in it
 
             butAdd.Click += (sender, e) =>
             {
