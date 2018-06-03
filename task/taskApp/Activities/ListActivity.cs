@@ -27,12 +27,13 @@ namespace taskApp.Activities
 
             var listView = FindViewById<ListView>(Resource.Id.listView);
             var butAdd = FindViewById<Button>(Resource.Id.butAdd);
-           // var checkButton = FindViewById<CheckBox>(Resource.Id.checkItem);
+            // var checkButton = FindViewById<CheckBox>(Resource.Id.checkItem);
 
             UpdateList();
 
-        
+
             listView.ItemClick += ListView_ItemClick; //Add functionality to item when doing click in it
+            listView.ItemLongClick += ListView_ItemLongClick; //Add functionality to item when doing LONG click in it
 
             butAdd.Click += (sender, e) =>
             {
@@ -48,6 +49,32 @@ namespace taskApp.Activities
             UpdateList();
         }
 
+        private void ListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            var id = (int)e.Id;
+            var listService = new TaskLocalService();
+
+            #region AlertDialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.SetTitle("Delete");
+            builder.SetMessage("You want delete this task?");
+
+
+            builder.SetPositiveButton("Ok", (senderAlert, args) =>
+            {
+                listService.Delete(id);
+                UpdateList();
+            });
+            builder.SetNegativeButton("Cancel", (senderAlert, args) =>
+            {
+                builder.Dispose();
+            });
+
+            builder.Show(); 
+            #endregion
+
+        }
+
         private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var intent = new Intent(this, typeof(ItemActivity));
@@ -55,7 +82,7 @@ namespace taskApp.Activities
             intent.PutExtra(ItemActivity.KEY_ID, id);
             StartActivity(intent);
         }
-        
+
         private void UpdateList()
         {
             var listView = FindViewById<ListView>(Resource.Id.listView);
@@ -64,6 +91,7 @@ namespace taskApp.Activities
 
             listView.Adapter = new ListAdapter(this, list);
         }
+
 
     }
 }
